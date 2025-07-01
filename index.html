@@ -447,21 +447,60 @@
                 font-size: 2rem;
             }
         }
-    </style>
+    
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+</style>
 </head>
 <body>
     <div class="bg-particles" id="particles"></div>
 
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Vishnu Prasad</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+        
+<div class="nav-container">
+    <div class="logo">Vishnu Prasad</div>
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
     </nav>
 
     <section id="home" class="hero">
@@ -503,41 +542,7 @@
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <h2>Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon">🚀</div>
-                <h3>Frontend Development</h3>
-                <p>React, Vue.js, JavaScript, HTML5, CSS3, TypeScript</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">⚡</div>
-                <h3>Backend Development</h3>
-                <p>Node.js, Python, PHP, Express.js, REST APIs</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🗄️</div>
-                <h3>Database Management</h3>
-                <p>MongoDB, MySQL, PostgreSQL, Redis</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">☁️</div>
-                <h3>Cloud & DevOps</h3>
-                <p>AWS, Docker, Git, CI/CD, Linux</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">📱</div>
-                <h3>Mobile Development</h3>
-                <p>React Native, Flutter, Progressive Web Apps</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🎨</div>
-                <h3>UI/UX Design</h3>
-                <p>Figma, Adobe XD, Design Systems, User Research</p>
-            </div>
-        </div>
-    </section>
+    
 
     <section id="contact" class="section">
         <h2>Let's Connect</h2>
@@ -700,6 +705,13 @@
                 clearInterval(typeWriter);
             }
         }, 100);
+
+        
+// Mobile nav toggle
+document.getElementById('menuToggle').addEventListener('click', function () {
+    document.getElementById('navLinks').classList.toggle('active');
+});
+
 
         // Enhanced hover effects
         document.querySelectorAll('.skill-card, .info-card').forEach(card => {

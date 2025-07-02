@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishnu Prasad - Developer Portfolio</title>
+    <title>Vishnu Prasad - KL29</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -524,7 +524,18 @@
                 font-size: 0.8rem;
             }
         }
-    </style>
+    
+        .hero-content, .about-content, .contact-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .info-card {
+            background: rgba(0, 0, 0, 0.5) !important;
+        }
+
+</style>
 </head>
 <body>
     <!-- Digital Clock -->
@@ -533,7 +544,7 @@
         <div class="clock-date" id="clock-date">Monday, January 1, 2024</div>
     </div>
 
-    <div class="bg-particles" id="particles"></div>
+    <div id="vanta-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
 
     <nav id="navbar">
         <div class="nav-container">
@@ -562,13 +573,11 @@
         <h2>About_Me</h2>
         <div class="about-content">
             <div class="about-text dev-text">
-                <p>Hello! I'm Vishnu, a passionate programmer with a creative mindset who loves turning complex problems into simple, beautiful solutions. From Kayamkulam, Kerala, India, I create digital experiences that are both functional and visually stunning.</p>
+                <p>Hy! I'm Vishnu Prasad, a Mechanical Engineering graduate from Carmel Polytechnic College, Alappuzha, originally from Kayamkulam, Kerala, and born in Punalur.</p>
                 
-                <p>My journey in programming started with curiosity and has evolved into a deep passion for creating innovative solutions. I believe in writing clean, efficient code while never compromising on the user experience.</p>
+                <p>I've interned at Suzee Hyundai, Tenkasi</p></p>
                 
-                <p>Now I'm doing BSc in Computer Science from IHRD College of Applied Science, Karthikapally. I recently pursued Mechanical Engineering at Carmel Polytechnic College, Alappuzha.</p>
-                
-                <p>When I'm not coding, you'll find me traveling to new places, exploring cutting-edge technologies, or brainstorming the next big idea that could change the world.</p>
+                <p> I'm passionate about exploring new places, listening to music, and delving into coding and web designing in my free time and currently I'm doing BSc in Computer Science from IHRD College of Applied Science, Karthikapally.</p>
             </div>
         </div>
        
@@ -619,7 +628,7 @@
     </div>
 
     <audio id="backgroundAudio" loop>
-        <source src="https://github.com/v3shn/audios/blob/main/pleasent.mp3?raw=true" type="audio/mpeg">
+        <source src="https://github.com/v3shn/audios/blob/main/3.mp3?raw=true" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -665,22 +674,6 @@
         // Update clock every second
         setInterval(updateClock, 1000);
         updateClock(); // Initialize immediately
-
-        // Animated particles background
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -774,8 +767,6 @@
             }
         });
 
-        // Initialize particles
-        createParticles();
 
         // Add typing effect to hero title
         const heroTitle = document.querySelector('.hero h1');
@@ -808,5 +799,24 @@
             });
         });
     </script>
+
+    <!-- Vanta Background Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+    <script>
+      VANTA.NET({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x00ffff,
+        backgroundColor: 0x000000
+      });
+    </script>
+
 </body>
 </html>
